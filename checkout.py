@@ -39,7 +39,7 @@ class Checkout:
         item_detail = self.rules.get(item_detail)
         discount_items = item_detail.get('discount items')
 
-        if discount_items and (num_items == discount_items):
+        if discount_items and (num_items % discount_items) == 0:
             discount = (discount_items * item_detail.get('unit price')) - item_detail.get('special price')
             self.total_price -= discount
 
